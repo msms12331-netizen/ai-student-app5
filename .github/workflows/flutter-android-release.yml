@@ -21,7 +21,7 @@ jobs:
           channel: "stable"
 
       - name: Create Flutter project structure (android, ios, etc.)
-        run: flutter create .
+        run: flutter create --project-name ai_student_app5 .
 
       - name: Get dependencies
         run: flutter pub get
