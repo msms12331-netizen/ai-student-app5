@@ -2,29 +2,35 @@ name: Build Android Release APK
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # 1) اسحب كود المشروع
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Flutter
+      # 2) ثبّت Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.24.0'
           channel: 'stable'
 
-      - name: Get packages
+      # 3) نزّل البكجات
+      - name: Get dependencies
         run: flutter pub get
 
-      - name: Build Release APK
+      # 4) بنِ ملف APK (وضع إصدار)
+      - name: Build APK
         run: flutter build apk --release
 
-      - name: Upload Release APK
+      # 5) ارفع الـ APK كـ Artifact تقدر تحمّله من GitHub
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release-apk
