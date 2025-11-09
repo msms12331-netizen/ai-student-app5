@@ -1,0 +1,20 @@
+name: ai_student_app
+description: تطبيق ذكي لمساعدة الطلاب باستخدام الذكاء الاصطناعي
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0
+  provider: ^6.1.2
+  google_fonts: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
